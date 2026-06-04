@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wavy Digital | Web Design Studio</title>
+<meta name="description" content="Wavy Digital builds fast, professional websites that get your business more customers. Once-off fee. 5-day delivery.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#080808;--white:#f5f2ee;--accent:#c8f55a;--accent-dark:#a8d93a;--mid:#1a1a1a;--muted:#888;--border:rgba(255,255,255,0.08)}
+html{scroll-behavior:smooth}
+body{background:#080808;color:#f5f2ee;font-family:'DM Sans',Arial,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* FLOATING WA */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:9999;background:#c8f55a;color:#080808;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.85rem;padding:14px 22px;border-radius:100px;text-decoration:none;display:flex;align-items:center;gap:8px;box-shadow:0 4px 24px rgba(200,245,90,0.4)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:rgba(8,8,8,0.95);border-bottom:1px solid rgba(255,255,255,0.08)}
+.nav-logo{font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:1.2rem;color:#f5f2ee;text-decoration:none}
+.nav-logo span{color:#c8f55a}
+.nav-cta{background:#c8f55a;color:#080808;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.8rem;padding:10px 22px;border-radius:100px;text-decoration:none;white-space:nowrap}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 40px 72px;background:#080808;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 20%,rgba(200,245,90,0.12) 0%,transparent 60%)}
+.hero-tag{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#c8f55a;margin-bottom:24px}
+.hero h1{font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:clamp(2.6rem,8vw,7rem);line-height:0.95;letter-spacing:-0.03em;margin-bottom:40px}
+.hero h1 em{font-style:normal;color:#c8f55a;display:block}
+.hero-sub{max-width:480px;color:rgba(245,242,238,0.65);font-size:1rem;line-height:1.75;margin-bottom:32px}
+.hero-sub strong{color:#f5f2ee}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{background:#c8f55a;color:#080808;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.9rem;padding:16px 28px;border-radius:100px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn-ghost{color:#f5f2ee;font-family:'Syne',Arial,sans-serif;font-weight:600;font-size:0.9rem;text-decoration:none;opacity:0.6}
+
+/* STATS */
+.stats{background:#1a1a1a;padding:32px 40px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)}
+.stat{text-align:center}
+.stat-num{font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:1.7rem;color:#c8f55a;line-height:1;margin-bottom:4px}
+.stat-label{font-size:0.72rem;color:#888;letter-spacing:0.08em;text-transform:uppercase}
+
+/* MARQUEE */
+.marquee-wrap{overflow:hidden;padding:14px 0;background:#c8f55a}
+.marquee-track{display:flex;animation:marquee 22s linear infinite;white-space:nowrap}
+.marquee-item{font-family:'Syne',Arial,sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(8,8,8,0.65);padding:0 28px;flex-shrink:0}
+.marquee-item span{color:#080808;margin-right:28px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:96px 40px}
+.label{font-size:0.67rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#c8f55a;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.label::after{content:'';display:block;width:40px;height:1px;background:#c8f55a}
+h2{font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:clamp(1.9rem,5vw,3.2rem);letter-spacing:-0.02em;line-height:1.08;margin-bottom:20px}
+.section-sub{color:rgba(245,242,238,0.5);font-size:0.93rem;line-height:1.75;max-width:400px;margin-bottom:56px}
+
+/* WHY */
+.why{background:#1a1a1a}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;margin-bottom:48px}
+.why-card{background:#080808;padding:40px 32px}
+.why-icon{font-size:2rem;margin-bottom:16px;display:block}
+.why-card h3{font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:1rem;margin-bottom:10px}
+.why-card p{color:rgba(245,242,238,0.5);font-size:0.87rem;line-height:1.75}
+.section-cta{text-align:center}
+
+/* SERVICES */
+.services{background:#080808}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin-bottom:48px}
+.service-card{background:#1a1a1a;padding:40px 32px;display:flex;flex-direction:column}
+.service-num{font-size:0.67rem;font-weight:700;letter-spacing:0.18em;color:#c8f55a;margin-bottom:20px;font-family:'Syne',Arial,sans-serif}
+.service-icon{font-size:2rem;margin-bottom:14px;display:block}
+.service-card h3{font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:10px;line-height:1.2}
+.service-card p{color:rgba(245,242,238,0.5);font-size:0.87rem;line-height:1.75;margin-bottom:20px;flex:1}
+.service-btn{display:inline-flex;align-items:center;gap:6px;background:#c8f55a;color:#080808;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.76rem;padding:10px 16px;border-radius:100px;text-decoration:none;width:fit-content}
+
+/* WORK */
+.work{background:#1a1a1a}
+.work-featured{background:#080808;border-radius:14px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-bottom:3px;min-height:400px}
+.work-img{position:relative;overflow:hidden;min-height:260px}
+.work-img img{width:100%;height:100%;object-fit:cover;display:block}
+.work-info{padding:48px 40px;display:flex;flex-direction:column;justify-content:center}
+.work-badge{display:inline-flex;background:rgba(200,245,90,0.1);border:1px solid rgba(200,245,90,0.2);color:#c8f55a;font-size:0.67rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;border-radius:100px;margin-bottom:20px;width:fit-content}
+.work-name{font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-0.02em;margin-bottom:12px;line-height:1.1}
+.work-desc{color:rgba(245,242,238,0.55);font-size:0.92rem;line-height:1.75;margin-bottom:28px}
+.work-btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.work-link{color:#c8f55a;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.82rem;text-decoration:none;letter-spacing:0.04em}
+.work-btn{background:#c8f55a;color:#080808;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.76rem;padding:10px 16px;border-radius:100px;text-decoration:none}
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:3px}
+.grid-card{background:#080808;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.grid-thumb{height:190px;overflow:hidden}
+.grid-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.grid-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.grid-tag{display:inline-flex;background:rgba(200,245,90,0.08);border:1px solid rgba(200,245,90,0.15);color:#c8f55a;font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:10px;width:fit-content}
+.grid-name{font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:8px}
+.grid-desc{color:rgba(245,242,238,0.5);font-size:0.82rem;line-height:1.65;margin-bottom:14px;flex:1}
+.grid-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:auto}
+.grid-link{color:#c8f55a;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.76rem;text-decoration:none}
+.grid-btn{background:rgba(200,245,90,0.12);color:#c8f55a;border:1px solid rgba(200,245,90,0.2);font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.72rem;padding:8px 14px;border-radius:100px;text-decoration:none}
+.work-bottom{margin-top:3px;background:#080808;border-radius:14px;padding:48px 40px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.work-bottom h3{font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:clamp(1.3rem,3vw,1.9rem);letter-spacing:-0.02em;margin-bottom:8px}
+.work-bottom p{color:rgba(245,242,238,0.55);font-size:0.92rem;max-width:360px;line-height:1.7}
+
+/* ABOUT */
+.about{background:#080808}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-text h2{margin-bottom:20px}
+.about-text p{color:rgba(245,242,238,0.6);font-size:0.97rem;line-height:1.82;margin-bottom:16px}
+.about-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.about-loc{color:#c8f55a;font-size:0.84rem;font-weight:500;margin-top:20px}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.astat{background:#1a1a1a;padding:32px 24px}
+.astat-num{font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.4rem);color:#c8f55a;letter-spacing:-0.03em;line-height:1;margin-bottom:8px;word-break:break-word}
+.astat-label{color:rgba(245,242,238,0.5);font-size:0.8rem;line-height:1.5}
+
+/* CTA STRIP */
+.cta-strip{background:#1a1a1a;padding:72px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)}
+.cta-strip h2{font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:clamp(1.5rem,4vw,2.6rem);letter-spacing:-0.02em;margin-bottom:10px}
+.cta-strip p{color:rgba(245,242,238,0.55);font-size:0.95rem;max-width:400px;line-height:1.7}
+.cta-strip-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-ghost-border{border:2px solid rgba(245,242,238,0.3);color:#f5f2ee;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.88rem;padding:14px 28px;border-radius:100px;text-decoration:none;white-space:nowrap}
+
+/* CONTACT */
+.contact{background:#c8f55a;padding:100px 40px;text-align:center;position:relative;overflow:hidden}
+.contact::before{content:'WAVY';position:absolute;font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:30vw;color:rgba(0,0,0,0.06);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap}
+.contact-label{font-size:0.67rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:20px}
+.contact h2{font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:clamp(2.4rem,7vw,5.5rem);letter-spacing:-0.03em;color:#080808;line-height:1;margin-bottom:18px}
+.contact-sub{color:rgba(0,0,0,0.55);font-size:1rem;max-width:480px;margin:0 auto 44px;line-height:1.75}
+.contact-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-dark{background:#080808;color:#c8f55a;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.92rem;padding:16px 32px;border-radius:100px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+.btn-outline{background:transparent;border:2px solid #080808;color:#080808;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.92rem;padding:16px 32px;border-radius:100px;text-decoration:none;white-space:nowrap}
+
+/* FOOTER */
+footer{background:#080808;border-top:1px solid rgba(255,255,255,0.08);padding:40px}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:40px}
+.footer-logo{font-family:'Syne',Arial,sans-serif;font-weight:800;font-size:1.1rem;color:#f5f2ee;text-decoration:none;display:block;margin-bottom:10px}
+.footer-logo span{color:#c8f55a}
+.footer-brand p{color:#888;font-size:0.84rem;max-width:220px;line-height:1.6}
+.footer-wa{display:inline-flex;align-items:center;gap:8px;background:#c8f55a;color:#080808;font-family:'Syne',Arial,sans-serif;font-weight:700;font-size:0.78rem;padding:10px 18px;border-radius:100px;text-decoration:none;margin-top:14px}
+.footer-col h4{font-family:'Syne',Arial,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#888;margin-bottom:14px}
+.footer-col a{display:block;color:rgba(245,242,238,0.6);font-size:0.85rem;text-decoration:none;margin-bottom:8px}
+.footer-col a:hover{color:#c8f55a}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-copy{color:#888;font-size:0.77rem}
+
+/* MOBILE */
+@media(max-width:900px){
+  .work-featured{grid-template-columns:1fr}
+  .about-inner{grid-template-columns:1fr;gap:40px}
+  .work-info{padding:36px 28px}
+}
+@media(max-width:768px){
+  nav{padding:16px 20px}
+  .hero{padding:88px 20px 60px}
+  section{padding:72px 20px}
+  .stats{padding:22px 20px}
+  .cta-strip{padding:56px 20px;flex-direction:column}
+  .contact{padding:72px 20px}
+  footer{padding:32px 20px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .work-grid{grid-template-columns:1fr}
+  .work-bottom{flex-direction:column}
+  .wa-float{bottom:16px;right:14px;font-size:0.8rem;padding:12px 16px}
+  .about-stats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .footer-top{flex-direction:column}
+  .about-stats{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:clamp(2.2rem,11vw,3.5rem)}
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING CTA -->
+<a href="https://wa.me/27714636308" class="wa-float" target="_blank">💬 Get Your Website</a>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Wavy<span>.</span></a>
+  <a href="https://wa.me/27714636308" class="nav-cta" target="_blank">Get a Website →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Web Design Studio — Worldwide</div>
+  <h1>Your website is your<br><em>best salesperson.</em></h1>
+  <p class="hero-sub">A great website works <strong>24/7</strong> — attracting customers, building trust, and converting visitors into paying clients. <strong>Fast. Affordable. Once-off fee.</strong></p>
+  <div class="hero-actions">
+    <a href="https://wa.me/27714636308" class="btn-primary" target="_blank">💬 Get Your Website Now</a>
+    <a href="#work" class="btn-ghost">See our work ↓</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">5 Days</div><div class="stat-label">Average Delivery</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Mobile Optimised</div></div>
+  <div class="stat"><div class="stat-num">Once-Off</div><div class="stat-label">Fee. You Own It.</div></div>
+  <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Works Non-Stop</div></div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span>✦</span> Web Design</span>
+    <span class="marquee-item"><span>✦</span> Mobile-First</span>
+    <span class="marquee-item"><span>✦</span> E-Commerce</span>
+    <span class="marquee-item"><span>✦</span> WhatsApp Integration</span>
+    <span class="marquee-item"><span>✦</span> Fast Delivery</span>
+    <span class="marquee-item"><span>✦</span> More Customers</span>
+    <span class="marquee-item"><span>✦</span> Once-Off Fee</span>
+    <span class="marquee-item"><span>✦</span> Real Results</span>
+    <span class="marquee-item"><span>✦</span> Web Design</span>
+    <span class="marquee-item"><span>✦</span> Mobile-First</span>
+    <span class="marquee-item"><span>✦</span> E-Commerce</span>
+    <span class="marquee-item"><span>✦</span> WhatsApp Integration</span>
+    <span class="marquee-item"><span>✦</span> Fast Delivery</span>
+    <span class="marquee-item"><span>✦</span> More Customers</span>
+    <span class="marquee-item"><span>✦</span> Once-Off Fee</span>
+    <span class="marquee-item"><span>✦</span> Real Results</span>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="label">Why it matters</div>
+  <h2>Your customers are searching.<br>Are they finding you?</h2>
+  <p class="section-sub">Without a website you're invisible online. Every day without one is revenue going to a competitor who showed up first.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">🔍</span>
+      <h3>Google Can't Find You</h3>
+      <p>97% of people search online before buying. If you're not there, they go to your competitor. A website puts you on the map — literally.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">💼</span>
+      <h3>You Look More Legit</h3>
+      <p>A professional website builds instant trust. Customers spend more and negotiate less when they see a business that looks established.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">⏰</span>
+      <h3>It Works While You Sleep</h3>
+      <p>Your website is open 24/7. It answers questions, shows your services, and converts visitors into paying customers — even at 2am.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📈</span>
+      <h3>More Customers. Less Effort.</h3>
+      <p>Stop relying on word of mouth alone. A website creates a consistent stream of new inquiries without you lifting a finger.</p>
+    </div>
+  </div>
+  <div class="section-cta">
+    <a href="https://wa.me/27714636308" class="btn-primary" target="_blank">💬 I Want More Customers</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="label">What we build</div>
+  <h2>Everything your business<br>needs to win online.</h2>
+  <p class="section-sub">No bloated agency pricing. No jargon. Sharp websites delivered fast with real results in mind.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🌐</span>
+      <div class="service-num">01</div>
+      <h3>Website Design & Build</h3>
+      <p>Professionally designed websites built to convert visitors into paying customers. Tailored to your brand and your goals.</p>
+      <a href="https://wa.me/27714636308" class="service-btn" target="_blank">Get started →</a>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📱</span>
+      <div class="service-num">02</div>
+      <h3>Mobile-First Design</h3>
+      <p>Over 80% of your customers are on their phones. Every site we build is fast, responsive, and sharp on any screen.</p>
+      <a href="https://wa.me/27714636308" class="service-btn" target="_blank">Get started →</a>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💬</span>
+      <div class="service-num">03</div>
+      <h3>WhatsApp Integration</h3>
+      <p>One tap to message, one tap to book. We wire your site to WhatsApp so customers reach you instantly — zero friction.</p>
+      <a href="https://wa.me/27714636308" class="service-btn" target="_blank">Get started →</a>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛒</span>
+      <div class="service-num">04</div>
+      <h3>E-Commerce Setup & Design</h3>
+      <p>Full online store from scratch. Product listings, price catalogues, payment integration — any budget, any niche.</p>
+      <a href="https://wa.me/27714636308" class="service-btn" target="_blank">Get started →</a>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">⚡</span>
+      <div class="service-num">05</div>
+      <h3>Fast 5-Day Delivery</h3>
+      <p>No long waits. Your site goes live within 5 days of briefing — quick, clean, and ready to bring in customers.</p>
+      <a href="https://wa.me/27714636308" class="service-btn" target="_blank">Get started →</a>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎯</span>
